@@ -4,10 +4,8 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
 
-
-
 app.get('/', function (req, res) {
-    res.render('./index.ejs');
+    res.render('index.ejs');
 });
 
 io.sockets.on('connection', function (socket) {

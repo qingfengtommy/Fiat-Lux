@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local sharing project for helping find family members</title>
+</head>
+
+<body>
+    <form action="/" method="POST" id="chatForm">
+        <input id="txt" autocomplete="off" autofocus="on" oninput="isTyping()"
+            placeholder="type your message here..." /> <button>Click for sharing your location</button>
+    </form>
+    <script>
+        var socket = io.connect('http://localhost:8080');
+        // submit text message without reload/refresh the page
+        $('form').submit(function (e) {
+            e.preventDefault(); // prevents page reloading
+            socket.emit('chat_message', $('#txt').val());
+            $('#txt').val('');
+            return false;
+        });
+        // append the chat text message
+        socket.on('chat_message', function (msg) {
+            $('#messages').append($('<li>').html(msg));
+        });
+        // append text if someone is online
+        socket.on('is_online', function (username) {
+            $('#messages').append($('<li>').html(username));
+        });
+        // ask username
+        var username = prompt('Please tell me your name');
+        socket.emit('username', username);
+    </script>
+
+</body>
+
+</html>

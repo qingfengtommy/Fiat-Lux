@@ -1,0 +1,23 @@
+{
+  "name": "fiat-lux",
+  "version": "1.0.0",
+  "description": "A web development for sharing locations in order to help people find their missing family members.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qingfengtommy/Fiat-Lux.git"
+  },
+  "keywords": [
+    "location",
+    "sharing"
+  ],
+  "author": "QingfengTommy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/qingfengtommy/Fiat-Lux/issues"
+  },
+  "homepage": "https://github.com/qingfengtommy/Fiat-Lux#readme"
+}
